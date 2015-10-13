@@ -1,0 +1,20 @@
+h1 {
+    font-family: Comic Sans MS;
+}
+
+p {
+    font-family: sans-serif;
+}
+
+body {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+li {
+    font-family: Arial;
+}
+
+img {
+    max-width: 75%;
+}

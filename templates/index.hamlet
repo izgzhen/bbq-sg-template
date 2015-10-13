@@ -1,1 +1,22 @@
-<h2> Home
+$doctype 5
+<html>
+    <head>
+        <title>Home
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <script type="text/javascript" src=#{jsSrc}>
+        <link href=#{cssSrc} rel="stylesheet" type="text/css">
+    <body>
+        <h3>Home
+        <section>
+            <h4>Wiki
+            <ol>
+                $forall wk <- wks
+                    <li>
+                        <a href=#{absolutePath siteConfig (Wiki wk) <> ".html"}>#{show wk}
+        <section>
+            <h4>Post
+            <ol>
+                $forall p <- posts
+                    <li>
+                        <a href=#{absolutePath siteConfig (Post p) <> ".html"}>#{show p}
+

@@ -1,2 +1,22 @@
-<p>
-    Post-index
+$doctype 5
+<html>
+    <head>
+        <title> Post Index
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <body>
+        <h3> Post Index
+        <section>
+            <h4>Listing
+            <ol>
+                $forall p <- postList
+                    <li>#{show p}
+        <section>
+            <h4>By Tag
+            <ul>
+                $forall pair <- m
+                    <li>#{fst pair}:
+                        $forall p <- snd pair                
+                            <ol>
+                                <li>#{show p}
+
+

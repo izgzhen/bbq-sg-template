@@ -1,5 +1,5 @@
 name:                bbq-sg-template
-version:             0.1.0
+version:             0.1.1
 author:              Zhen Zhang
 license:             MIT
 maintainer:          izgzhen@gmail.com
@@ -11,16 +11,21 @@ executable blog
   main-is:             Main.hs
   other-modules:       Config,
                        Render.Post,
-                       Render.Wiki
+                       Render.Wiki,
+                       Render.Index
 
   default-extensions:  TemplateHaskell,
                        OverloadedStrings,
                        RecordWildCards
 
   build-depends:       base >=4.8 && <4.9,
-                       bbq-sg >=0.6.1 && <0.6.2,
+                       bbq-sg >=0.6.3 && <0.6.4,
                        containers,
-                       template-haskell
+                       template-haskell,
+                       pandoc,
+                       unordered-containers,
+                       wai-app-static,
+                       warp
 
   default-language:    Haskell2010
   hs-source-dirs:      src

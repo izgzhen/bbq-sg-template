@@ -1,5 +1,16 @@
 $doctype 5
 <html>
     <head>
-        <title>Post 
+        <title>#{title}
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <script type="text/javascript" src=#{jsSrc}>
+        <link href=#{cssSrc} rel="stylesheet" type="text/css">
+
     <body>
+        <h3>#{title}
+        <h5>Pid: #{show pid}
+        $maybe d <- date
+            <h5> Mofified Date: #{show d}
+        <section>
+            #{bodyHtml}
+

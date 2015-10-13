@@ -1,3 +1,4 @@
+import Config
 import BBQ.Import
 import BBQ.Task
 import BBQ.Component.Post
@@ -6,6 +7,7 @@ import BBQ.Component.Wiki
 import BBQ.FTree
 import Render.Post
 import Render.Wiki
+import Render.Index
 -- import qualified Data.HashMap.Lazy as HM
 
 hsDeps :: FilePath -> Action ()
@@ -15,7 +17,7 @@ hsDeps srcDir = do
 
 main :: IO ()
 main = do
-    let config@BuildConfig{..} = defaultBuildConfig
+    let config@BuildConfig{..} = myConfig
 
     wikiPathTree <- mkFileTree "wiki"
     posts        <- mkFileTree "post" >>= (\(Dir _ trees) -> return $ filterFiles trees)
@@ -27,8 +29,8 @@ main = do
         want [buildAt mdSrcDir </> "index.html"]
         want [buildAt "index.html"]
 
-        runRecTask targetDir wikiTask renderWiki wikiPathTree
+        runRecTask config targetDir wikiTask renderWiki wikiPathTree
 
-        runTask postTask renderPost targetDir mdSrcDir posts []
+        runTask config postTask renderPost targetDir mdSrcDir posts []
 
-        runCollectTask targetDir indexCollector
+        runCollectTask targetDir indexCollector (indexResolver config)
